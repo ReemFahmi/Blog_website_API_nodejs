@@ -2,7 +2,7 @@ const express = require('express');
 const mongoose = require('mongoose');
 const routes = require('./routes');
 
-const { MONGODB_URI } = process.env;
+const  MONGODB_URI  = "mongodb+srv://ReemFahmi:1234@cluster0.jqztw.mongodb.net/blogDB";
 
 const app = express();
 
