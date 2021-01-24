@@ -10,7 +10,8 @@ const {
   removefollow,
   follwerBloges,
   getfollwers ,
-  getfollwing
+  getfollwing,
+  addfollowers
   
 } = require('../controllers/user');
 const authMiddleware = require('../middleware/auth');
@@ -88,6 +89,7 @@ router.post('/follow/:targetid', async (req, res, next) => {
   const { params: { targetid },user: { id }  } = req;
   try {
     const users = await addfollow( targetid, id);
+    //users = await addfollowers( targetid, id);
     res.json(users);
   } catch (e) {
     next(e);
