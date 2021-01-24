@@ -6,7 +6,13 @@ const { MONGODB_URI } = process.env;
 
 const app = express();
 
-mongoose.connect(MONGODB_URI, { useUnifiedTopology: true });
+mongoose.connect(MONGODB_URI, {
+  useNewUrlParser: true,
+  useFindAndModify: false,
+  useUnifiedTopology: true,
+  useCreateIndex: true
+}
+);
 
 app.use(express.json());
 
