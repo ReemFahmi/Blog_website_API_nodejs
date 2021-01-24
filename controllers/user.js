@@ -121,7 +121,6 @@ module.exports = {
   removefollow,
   follwerBloges,
   getfollwers,
-  getfollwing,
-  addfollowers
+  getfollwing
 
 };
