@@ -18,32 +18,23 @@ const editUser = (id, body) => User.findByIdAndUpdate(id, body, { new: true }).e
 const deleteone=(id) => User.remove({_id:id}).exec();
 
 
-const addfollow = async (id, trgetid)=> {
-User.update(
+const addfollow = (id, trgetid)=>User.update(
   { "_id": trgetid },
   {
       $push: {
         fowlling: id,
-        fowllores:id
+        fowllores:trgetid
       }
   }
 );
 
-User.update(
-  { "_id": trgetid },
-  {
-      $push: {
-        fowllores:id
-      }
-  }
-)
-}
+
 const removefollow = (id, trgetid)=> User.update(
   { "_id": trgetid },
   {
       $pull: {
         fowlling: id,
-        fowllores:id
+        fowllores:trgetid
       }
   }
 );
