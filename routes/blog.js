@@ -44,31 +44,20 @@ router.get('/', async (req, res, next) => {
 router.use(authMiddleware);
 
 
-// router.post('/createblog',upload.single("photo"), async (req, res, next) => {
-//   const { body,user: { id }  } = req;
-//   //debugger;
-//   const _file =req.file.filename;
-//   try {
-//      // debugger
-//     const blog = await create({...body,photo:_file, auther: id});
-//     res.json(blog);
-//   } catch (e) {
-//     next(e);
-//   }
-// });
-
-router.post('/createblog', async (req, res, next) => {
+router.post('/createblog',upload.single("photo"), async (req, res, next) => {
   const { body,user: { id }  } = req;
   //debugger;
- 
+  const _file =req.file.filename;
   try {
      // debugger
-    const blog = await create({...body, auther: id});
+    const blog = await create({...body,photo:_file, auther: id});
     res.json(blog);
   } catch (e) {
     next(e);
   }
 });
+
+
 
 // to give his blogs (token)
 router.get('/', async (req, res, next) => {

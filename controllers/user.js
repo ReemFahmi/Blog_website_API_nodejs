@@ -23,19 +23,19 @@ const addfollow = (id, trgetid)=> User.update(
   {
       $push: {
         fowlling: id,
-        fowllores:trgetid
+       // fowllores:trgetid
       }
   }
 );
 
-// const addfollowers = (id, trgetid)=> User.update(
-//   { "_id": id },
-//   {
-//       $push: {
-//         fowllores:trgetid
-//       }
-//   }
-// );
+const addfollowers = (id, trgetid)=> User.update(
+  { "_id": id },
+  {
+      $push: {
+        fowllores:trgetid
+      }
+  }
+);
 
 
 
@@ -121,6 +121,7 @@ module.exports = {
   removefollow,
   follwerBloges,
   getfollwers,
-  getfollwing
+  getfollwing,
+  addfollowers
 
 };
