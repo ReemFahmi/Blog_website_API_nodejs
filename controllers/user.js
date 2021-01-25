@@ -18,37 +18,22 @@ const editUser = (id, body) => User.findByIdAndUpdate(id, body, { new: true }).e
 const deleteone=(id) => User.remove({_id:id}).exec();
 
 
-const addfollow =  async (id, trgetid)=>
-{
-  await promise.all([
-  User.update(
+const addfollow = (id, trgetid)=> User.update(
   { "_id": trgetid },
   {
       $push: {
         fowlling: id,
-        //fowllores:trgetid
-      }
-  }
-)
-,
-User.update(
-  { "_id": id },
-  {
-      $push: {
-       // fowlling: id,
         fowllores:trgetid
       }
   }
-)])
-};
-
+);
 
 const removefollow = (id, trgetid)=> User.update(
   { "_id": trgetid },
   {
       $pull: {
         fowlling: id,
-        fowllores:id
+        fowllores:trgetid
       }
   }
 );
