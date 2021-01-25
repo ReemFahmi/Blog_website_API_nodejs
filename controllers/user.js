@@ -18,7 +18,7 @@ const editUser = (id, body) => User.findByIdAndUpdate(id, body, { new: true }).e
 const deleteone=(id) => User.remove({_id:id}).exec();
 
 
-const addfollow = (id, trgetid)=> {
+const addfollow = async (id, trgetid)=> {
 User.update(
   { "_id": trgetid },
   {
