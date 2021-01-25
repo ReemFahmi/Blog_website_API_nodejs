@@ -5,7 +5,7 @@ const asyncSign = promisify(jwt.sign);
 const User = require('../models/User');
 
 
-const { getauther }  = require('../controllers/Blog');
+const { getauther }  = require('../controllers/blog');
 
 const create = (user) => User.create(user);
 

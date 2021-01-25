@@ -11,7 +11,7 @@ const {
   follwerBloges,
   getfollwers ,
   getfollwing,
-  addfollowers
+ 
   
 } = require('../controllers/user');
 const authMiddleware = require('../middleware/auth');
