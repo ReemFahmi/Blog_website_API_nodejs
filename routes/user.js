@@ -10,8 +10,7 @@ const {
   removefollow,
   follwerBloges,
   getfollwers ,
-  getfollwing,
-  addfollowers
+  getfollwing
  
   
 } = require('../controllers/user');
@@ -89,8 +88,7 @@ router.patch('/edite/:id', async (req, res, next) => {
 router.post('/follow/:targetid', async (req, res, next) => {
   const { params: { targetid },user: { id }  } = req;
   try {
-    users = await addfollow( targetid, id);
-    users = await addfollowers( targetid, id);
+     const users = await addfollow( targetid, id);
     res.json(users);
   } catch (e) {
     next(e);
