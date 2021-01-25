@@ -34,7 +34,7 @@ const removefollow = (id, trgetid)=> User.update(
   {
       $pull: {
         fowlling: id,
-        fowllores:trgetid
+        fowllores:id
       }
   }
 );
